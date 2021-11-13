@@ -1,0 +1,25 @@
+[package]
+name = "tim"
+
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+structopt = "0.3" # For parsing CLI arguments
+directories = "3.0" # For getting the location of the configuration file # Is this really neccessary?
+toml = "0.5" # For parsing the configuration file
+serde = { version = "1.0", features = ["derive"] } # For deserializing the configuration file
+
+imap = "2.4" # For connecting to the IMAP mail server
+native-tls = "0.2" # Dependency of imap. Can be removed when switching to imap 3
+# imap = { version = "3.0.0-alpha.4", features = [ "rustls-tls" ]}
+# imap = { version = "3.0", features = [ "rustls-tls" ]} # Use this when it's released
+# rustls = "0.19"
+mailparse = "0.13" # For parsing emails
+
+lettre = "0.9" # For sending emails (via SMTP)
+lettre_email = "0.9" # Includes an email builder used with lettre
+
+termion = "1.5" # For list_select
